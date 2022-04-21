@@ -2,7 +2,6 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
-
 import styles from "./home.module.scss";
 
 interface HomeProps {
@@ -37,7 +36,7 @@ export default function Home(props: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const price = await stripe.prices.retrieve("price_1JgKqhEHp5rASypl3ir9e5Be");
+  const price = await stripe.prices.retrieve("price_1Kq0K0IF20HjZvE0MeTxluMV");
 
   const product = {
     priceId: price.id,

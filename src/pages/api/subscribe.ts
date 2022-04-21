@@ -1,7 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { query as q } from "faunadb";
-import { fauna } from "../../services/fauna";
+import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/client";
+import { fauna } from "../../services/fauna";
 import { stripe } from "../../services/stripe";
 
 type User = {
@@ -42,7 +42,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const stripeCheckoutSection = await stripe.checkout.sessions.create({
       customer: customerId,
       payment_method_types: ["card"],
-      line_items: [{ price: "price_1JgKqhEHp5rASypl3ir9e5Be", quantity: 1 }],
+      line_items: [{ price: "price_1Kq0K0IF20HjZvE0MeTxluMV", quantity: 1 }],
       mode: "subscription",
       allow_promotion_codes: true,
       success_url: process.env.STRIPE_SUCCESS_URL,
